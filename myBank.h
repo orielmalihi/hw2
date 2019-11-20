@@ -10,6 +10,10 @@
 
 void open();
 void balance();
+void deposit();
+void widrow();
+void close();
+void interestRate();
 
 
 

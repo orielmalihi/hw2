@@ -20,10 +20,7 @@ int main(){
 	char ans = 'a';
 	while(ans!='E'){
 		printf("Transaction type?\n");
-		ans=getchar();
-		while(ans=='\n'){
-		ans=getchar();
-		}
+		scanf(" %c", &ans);
 		switch (ans)
 		{
 		case 'O':
@@ -31,6 +28,18 @@ int main(){
 			break;
 		case 'B':
 			balance();
+			break;
+		case 'D':
+			deposit();
+			break;
+		case 'W':
+			widrow();
+			break;
+		case 'C':
+			close();
+			break;
+		case 'I':
+			interestRate();
 			break;
 		default:
 			printf("you eneterd incorrect letter, try again please.\n");
