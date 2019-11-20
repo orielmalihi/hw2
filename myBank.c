@@ -11,11 +11,11 @@
 double bank[AccountStatus][NumOfAccounts] = {{0},{0}};
 
 void clearInputBuffer(){
-		char c;
-		while ( c != '\n'){
-			c = getchar();
-		}
+	char c;
+	while ( c != '\n'){
+		c = getchar();
 	}
+}
 
 void open(){
 	double deposit;
@@ -27,7 +27,7 @@ void open(){
 			printf("Initial deposit?\n");
 			scanf(" %lf",&deposit);
 			if(deposit<0){
-				printf("Depoisit was unsuccesful.\nCan not deposit a negative amount\n");
+				printf("Depoisit was unsuccessful.\nCan not deposit a negative amount\n");
 				return;
 			}
 			bank[1][i] += deposit;
@@ -73,7 +73,7 @@ void deposit(){
 		printf("Amount?\n");
 		scanf(" %lf", &amount);
 		if(amount<0){
-			printf("Depoisit was unsuccesful.\nCan not deposit a negative amount\n");
+			printf("Depoisit was unsuccessful.\nCan not deposit a negative amount\n");
 			return;
 		}
 		bank[1][accountNumber] += amount;
@@ -98,7 +98,7 @@ void withrow(){
 		printf("Amount?\n");
 		scanf(" %lf", &amount);
 		if(amount<0){
-			printf("Withrow was unsuccesful.\nCan not withrow a negative amount\n");
+			printf("Withrow was unsuccessful.\nCan not withrow a negative amount\n");
 			return;
 		}
 		bank[1][accountNumber] -= amount;
@@ -135,6 +135,26 @@ void interestRate(){
 			bank[1][i] *= interstRate;
 	}
 }
+
+void printAccounts(){
+	for(int i = 0; i<NumOfAccounts; i++){
+		if(bank[0][i]==1.0){
+			int accountNumber = i+901;
+			printf("Account number %d has balance of %lf $\n", accountNumber, bank[1][i]);
+		}
+	}
+}
+
+void end(){
+	for(int i = 0; i<NumOfAccounts; i++){
+		if(bank[0][i]==1.0){
+			bank[0][i]=0.0;
+			bank[1][i]=0.0;
+		}
+	}
+	printf("All accounts have been closed successfully");
+}
+
 
 
 

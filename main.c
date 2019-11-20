@@ -16,7 +16,7 @@ int main(){
 	printf("C : to close your account\n");
 	printf("I : to add interest rate to all accounts\n");
 	printf("P : print all open accounts and their balance\n");
-	printf("E : close all open accounts and finish\n\n");
+	printf("E : close all open accounts and ending the program\n\n");
 	char ans = 'a';
 	char clear;
 	while(ans!='E'){
@@ -42,6 +42,12 @@ int main(){
 			break;
 		case 'I':
 			interestRate();
+			break;
+		case 'P':
+			printAccounts();
+			break;
+		case 'E':
+			end();
 			break;
 		default:
 			printf("you eneterd incorrect letter, try again please.\n");

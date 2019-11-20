@@ -14,6 +14,8 @@ void deposit();
 void withrow();
 void close();
 void interestRate();
+void printAccounts();
+void end();
 
 
 
