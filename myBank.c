@@ -120,7 +120,7 @@ void close(){
 	if(bank[0][accountNumber]==1.0){
 		bank[0][accountNumber]=0.0;
 		bank[1][accountNumber]=0.0;
-		printf("Closing the account was succesful\n");
+		printf("Closing the account was successful\n");
 	}
 	else{
 		printf("This account is already closed\n");
@@ -128,13 +128,14 @@ void close(){
 }
 
 void interestRate(){
-	double interstRate;
+	double interestRate;
 	printf("Interest rate? (in Decimal number)\n");
-	scanf(" %lf", &interstRate);
-	interstRate += 1;
+	scanf(" %lf", &interestRate);
+	interestRate /= 100;
+	interestRate += 1;
 	for(int i = 0; i<NumOfAccounts; i++){
 		if(bank[0][i]==1.0)
-			bank[1][i] *= interstRate;
+			bank[1][i] *= interestRate;
 	}
 }
 
