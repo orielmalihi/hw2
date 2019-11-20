@@ -16,6 +16,7 @@ void close();
 void interestRate();
 void printAccounts();
 void end();
+void clearInputBuffer();
 
 
 

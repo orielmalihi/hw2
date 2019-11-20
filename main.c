@@ -18,7 +18,6 @@ int main(){
 	printf("P : print all open accounts and their balance\n");
 	printf("E : close all open accounts and ending the program\n\n");
 	char ans = 'a';
-	char clear;
 	while(ans!='E'){
 		printf("Transaction type?\n");
 		ans = getchar();

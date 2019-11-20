@@ -7,6 +7,8 @@
 #define NumOfAccounts 50
 #define AccountStatus 2
 
+#include "stdio.h"
+
 
 double bank[AccountStatus][NumOfAccounts] = {{0},{0}};
 
@@ -27,7 +29,7 @@ void open(){
 			printf("Initial deposit?\n");
 			scanf(" %lf",&deposit);
 			if(deposit<0){
-				printf("Depoisit was unsuccessful.\nCan not deposit a negative amount\n");
+				printf("Depoisit was unsuccessful.\nCan not deposit a negative amount.\n");
 				return;
 			}
 			bank[1][i] += deposit;
@@ -152,7 +154,7 @@ void end(){
 			bank[1][i]=0.0;
 		}
 	}
-	printf("All accounts have been closed successfully");
+	printf("All accounts have been closed successfully.\nGood bye!\n");
 }
 
 
