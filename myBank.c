@@ -7,7 +7,15 @@
 #define NumOfAccounts 50
 #define AccountStatus 2
 
+
 double bank[AccountStatus][NumOfAccounts] = {{0},{0}};
+
+void clearInputBuffer(){
+		char c;
+		while ( c != '\n'){
+			c = getchar();
+		}
+	}
 
 void open(){
 	double deposit;
@@ -18,6 +26,10 @@ void open(){
 			accountNumber = i + 901;
 			printf("Initial deposit?\n");
 			scanf(" %lf",&deposit);
+			if(deposit<0){
+				printf("Depoisit was unsuccesful.\nCan not deposit a negative amount\n");
+				return;
+			}
 			bank[1][i] += deposit;
 			printf("your account number is %d , and your current balance is %0.2lf\n", accountNumber, bank[1][i]);
 			return;
@@ -57,14 +69,19 @@ void deposit(){
 	if(bank[0][accountNumber]==0){
 		printf("This account is closed\n");
 	}else{
+		clearInputBuffer();
 		printf("Amount?\n");
 		scanf(" %lf", &amount);
+		if(amount<0){
+			printf("Depoisit was unsuccesful.\nCan not deposit a negative amount\n");
+			return;
+		}
 		bank[1][accountNumber] += amount;
 		printf("your current balance is %0.2lf\n", bank[1][accountNumber]);
 	}
 }
 
-void widrow(){
+void withrow(){
 	int accountNumber;
 	double amount;
 	printf("Account number?\n");
@@ -77,8 +94,13 @@ void widrow(){
 	if(bank[0][accountNumber]==0){
 		printf("This account is closed\n");
 	}else{
+		clearInputBuffer();
 		printf("Amount?\n");
 		scanf(" %lf", &amount);
+		if(amount<0){
+			printf("Withrow was unsuccesful.\nCan not withrow a negative amount\n");
+			return;
+		}
 		bank[1][accountNumber] -= amount;
 		printf("your current balance is %0.2lf\n", bank[1][accountNumber]);
 	}

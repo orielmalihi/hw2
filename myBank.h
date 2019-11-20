@@ -11,7 +11,7 @@
 void open();
 void balance();
 void deposit();
-void widrow();
+void withrow();
 void close();
 void interestRate();
 

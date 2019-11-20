@@ -18,9 +18,11 @@ int main(){
 	printf("P : print all open accounts and their balance\n");
 	printf("E : close all open accounts and finish\n\n");
 	char ans = 'a';
+	char clear;
 	while(ans!='E'){
 		printf("Transaction type?\n");
-		scanf(" %c", &ans);
+		ans = getchar();
+		clearInputBuffer();
 		switch (ans)
 		{
 		case 'O':
@@ -33,7 +35,7 @@ int main(){
 			deposit();
 			break;
 		case 'W':
-			widrow();
+			withrow();
 			break;
 		case 'C':
 			close();
@@ -45,6 +47,7 @@ int main(){
 			printf("you eneterd incorrect letter, try again please.\n");
 			break;
 		}
+		clearInputBuffer();
 	}
 	return 0;
 }
