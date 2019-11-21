@@ -7,6 +7,10 @@ C_SRCS += \
 ../main.c \
 ../myBank.c 
 
+O_SRCS += \
+../main.o \
+../myBank.o 
+
 OBJS += \
 ./main.o \
 ./myBank.o 

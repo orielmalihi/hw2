@@ -13,8 +13,8 @@
 double bank[AccountStatus][NumOfAccounts] = {{0},{0}};
 
 void clearInputBuffer(){
-	char c;
-	while ( c != '\n'){
+	char c = 'a';
+	while ( c != '\n' && c!=' '){
 		c = getchar();
 	}
 }
@@ -143,7 +143,7 @@ void printAccounts(){
 	for(int i = 0; i<NumOfAccounts; i++){
 		if(bank[0][i]==1.0){
 			int accountNumber = i+901;
-			printf("Account number %d has balance of %lf $\n", accountNumber, bank[1][i]);
+			printf("Account number %d has balance of %0.2lf $\n", accountNumber, bank[1][i]);
 		}
 	}
 }

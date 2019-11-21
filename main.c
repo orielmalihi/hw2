@@ -52,7 +52,8 @@ int main(){
 			printf("you eneterd incorrect letter, try again please.\n");
 			break;
 		}
-		clearInputBuffer();
+		if(ans != 'P' && ans != 'E')
+			clearInputBuffer();
 	}
 	return 0;
 }
