@@ -104,6 +104,11 @@ void withrow(){
 			return;
 		}
 		bank[1][accountNumber] -= amount;
+		if(bank[1][accountNumber]<0.0){
+			bank[1][accountNumber] += amount;
+			printf("Withrow was unsuccessful.\nYou do not have enugh money in this account.\n");
+			return;
+		}
 		printf("your current balance is %0.2lf\n", bank[1][accountNumber]);
 	}
 }
