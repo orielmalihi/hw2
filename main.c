@@ -18,29 +18,50 @@ int main(){
 	printf("P : print all open accounts and their balance\n");
 	printf("E : close all open accounts and ending the program\n\n");
 	char ans = 'a';
+	double amount;
+	double rate;
+	int accountNumber;
 	while(ans!='E'){
 		printf("Transaction type?\n");
-		ans = getchar();
+		scanf(" %c",&ans);
 		clearInputBuffer();
 		switch (ans)
 		{
 		case 'O':
-			open();
+			printf("Initial deposit?\n");
+			scanf(" %lf",&amount);
+			open(amount);
 			break;
 		case 'B':
-			balance();
+			printf("Account number?\n");
+			scanf(" %d", &accountNumber);
+			balance(accountNumber);
 			break;
 		case 'D':
-			deposit();
+			printf("Account number?\n");
+			scanf(" %d", &accountNumber);
+			clearInputBuffer();
+			printf("Amount?\n");
+			scanf(" %lf", &amount);
+			deposit(accountNumber, amount);
 			break;
 		case 'W':
-			withrow();
+			printf("Account number?\n");
+			scanf(" %d", &accountNumber);
+			clearInputBuffer();
+			printf("Amount?\n");
+			scanf(" %lf", &amount);
+			withrow(accountNumber, amount);
 			break;
 		case 'C':
-			close();
+			printf("Account number?\n");
+			scanf(" %d", &accountNumber);
+			close(accountNumber);
 			break;
 		case 'I':
-			interestRate();
+			printf("Interest rate?\n");
+			scanf(" %lf", &rate);
+			interestRate(rate);
 			break;
 		case 'P':
 			printAccounts();

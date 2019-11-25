@@ -19,20 +19,17 @@ void clearInputBuffer(){
 	}
 }
 
-void open(){
-	double deposit;
+void open(double amount){
 	int accountNumber;
 	for(int i = 0; i<NumOfAccounts; i++){
 		if(bank[0][i]==0.0){
 			bank[0][i]=1.0;
 			accountNumber = i + 901;
-			printf("Initial deposit?\n");
-			scanf(" %lf",&deposit);
-			if(deposit<0){
+			if(amount<0){
 				printf("Depoisit was unsuccessful.\nCan not deposit a negative amount.\n");
 				return;
 			}
-			bank[1][i] += deposit;
+			bank[1][i] += amount;
 			printf("your account number is %d , and your current balance is %0.2lf\n", accountNumber, bank[1][i]);
 			return;
 		}
@@ -41,10 +38,7 @@ void open(){
 	printf("Could not open an account.\nall accounts are occupied.\n");
 
 }
-void balance(){
-	int accountNumber;
-	printf("Account number?\n");
-	scanf(" %d", &accountNumber);
+void balance(int accountNumber){
 	accountNumber -= 901;
 	if(accountNumber<0 || accountNumber>49){
 		printf("This account is not in our bank\n");
@@ -58,11 +52,7 @@ void balance(){
 	}
 }
 
-void deposit(){
-	int accountNumber;
-	double amount;
-	printf("Account number?\n");
-	scanf(" %d", &accountNumber);
+void deposit(int accountNumber, double amount){
 	accountNumber -= 901;
 	if(accountNumber<0 || accountNumber>49){
 		printf("This account is not in our bank\n");
@@ -70,24 +60,17 @@ void deposit(){
 	}
 	if(bank[0][accountNumber]==0){
 		printf("This account is closed\n");
-	}else{
-		clearInputBuffer();
-		printf("Amount?\n");
-		scanf(" %lf", &amount);
-		if(amount<0){
+		return;
+	}else if(amount<0){
 			printf("Depoisit was unsuccessful.\nCan not deposit a negative amount\n");
 			return;
 		}
 		bank[1][accountNumber] += amount;
 		printf("your current balance is %0.2lf\n", bank[1][accountNumber]);
 	}
-}
 
-void withrow(){
-	int accountNumber;
-	double amount;
-	printf("Account number?\n");
-	scanf(" %d", &accountNumber);
+
+void withrow(int accountNumber, double amount){
 	accountNumber -= 901;
 	if(accountNumber<0 || accountNumber>49){
 		printf("This account is not in our bank\n");
@@ -95,11 +78,8 @@ void withrow(){
 	}
 	if(bank[0][accountNumber]==0){
 		printf("This account is closed\n");
-	}else{
-		clearInputBuffer();
-		printf("Amount?\n");
-		scanf(" %lf", &amount);
-		if(amount<0){
+		return;
+	}else if(amount<0){
 			printf("Withrow was unsuccessful.\nCan not withrow a negative amount\n");
 			return;
 		}
@@ -111,12 +91,9 @@ void withrow(){
 		}
 		printf("your current balance is %0.2lf\n", bank[1][accountNumber]);
 	}
-}
 
-void close(){
-	int accountNumber;
-	printf("Account number?\n");
-	scanf(" %d", &accountNumber);
+
+void close(int accountNumber){
 	accountNumber -= 901;
 	if(accountNumber<0 || accountNumber>49){
 		printf("This account is not in our bank\n");
@@ -132,10 +109,7 @@ void close(){
 	}
 }
 
-void interestRate(){
-	double interestRate;
-	printf("Interest rate? (in Decimal number)\n");
-	scanf(" %lf", &interestRate);
+void interestRate(double interestRate){
 	interestRate /= 100;
 	interestRate += 1;
 	for(int i = 0; i<NumOfAccounts; i++){

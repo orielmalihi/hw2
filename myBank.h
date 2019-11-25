@@ -8,9 +8,9 @@
 #ifndef MYBANK_H_
 #define MYBANK_H_
 
-void open();
-void balance();
-void deposit();
+void open(double amount);
+void balance(int accountNumber);
+void deposit(int accountNumber, double deposit);
 void withrow();
 void close();
 void interestRate();
